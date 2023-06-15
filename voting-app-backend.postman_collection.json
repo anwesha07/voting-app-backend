@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "2cd016e8-3875-4f4a-84d1-5147f5e8aeb0",
+		"name": "voting-app-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25432004"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\": \"anwesha\",\n    \"email\":\"a@abc.com\",\n    \"aadhaar\": \"123456789124\",\n    \"password\": \"12345678\",\n    \"confirmPassword\": \"12345678\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"a@abc.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout-user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5Nzg5ODRjMjUzOTRiZDIxNWFlZmIiLCJpYXQiOjE2ODY3MzE4MzksImV4cCI6MTY4NjgxODIzOX0.1ZUzY8ckC982usYnfPRfKr7NR5HP_-7N5KobyGLG0OM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5Nzg5ODRjMjUzOTRiZDIxNWFlZmIiLCJpYXQiOjE2ODY3MzE1MTksImV4cCI6MTY4NjgxNzkxOX0.gaWjZ5jPumgoaIJ7irxvukjXFVOpcLY9_TE-XuL-2OU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/auth/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "candidate",
+			"item": [
+				{
+					"name": "register candidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5OTVjYzg2ZDRhNzc4ZmJkY2ZjNmIiLCJpYXQiOjE2ODY3NDg5MTMsImV4cCI6MTY4NjgzNTMxM30.bvLFGSH8ICMt6ly_3E32t9iYunmHtLMPZNE_UcWL7tw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"lkk\",\n    \"email\": \"m@abc.com\",\n    \"gender\": \"female\",\n    \"age\": \"40\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/candidate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"candidate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-candidate-by-id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5OTVjYzg2ZDRhNzc4ZmJkY2ZjNmIiLCJpYXQiOjE2ODY3NDg5MTMsImV4cCI6MTY4NjgzNTMxM30.bvLFGSH8ICMt6ly_3E32t9iYunmHtLMPZNE_UcWL7tw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/candidate/6489c1221a26df9fb10e94a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"candidate",
+								"6489c1221a26df9fb10e94a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "voteEvent",
+			"item": [
+				{
+					"name": "create-vote-event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5OTVjYzg2ZDRhNzc4ZmJkY2ZjNmIiLCJpYXQiOjE2ODY3NzU0ODAsImV4cCI6MTY4Njg2MTg4MH0.p9VIekTTEWbE6zxpXhHRz22c2-L9HryejI-VBfqrDjQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"testElection8\",\n    \"startDate\": 1686778020000,\n    \"endDate\": 1697740200000,\n    \"candidates\": [\n        \"6489bfff91e67c79f8aa3f23\",\n        \"6489c1691a26df9fb10e94b5\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/voteEvents/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"voteEvents",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-voteEvent-by-id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5OTVjYzg2ZDRhNzc4ZmJkY2ZjNmIiLCJpYXQiOjE2ODY4MzI5NzYsImV4cCI6MTY4NjkxOTM3Nn0.sl0r76ygby2LaU_IN7tRFKk822kx8k2acWKLerDV8j8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/voteEvents/648a3071f3e808f0ebb7d905",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"voteEvents",
+								"648a3071f3e808f0ebb7d905"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vote-candidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5OTVjYzg2ZDRhNzc4ZmJkY2ZjNmIiLCJpYXQiOjE2ODY3NzU0ODAsImV4cCI6MTY4Njg2MTg4MH0.p9VIekTTEWbE6zxpXhHRz22c2-L9HryejI-VBfqrDjQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"candidate\": \"6489c1691a26df9fb10e94b5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/voteEvents/648a3071f3e808f0ebb7d905/vote",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"voteEvents",
+								"648a3071f3e808f0ebb7d905",
+								"vote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-active-voteEvents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDg5OTVjYzg2ZDRhNzc4ZmJkY2ZjNmIiLCJpYXQiOjE2ODY3NzU0ODAsImV4cCI6MTY4Njg2MTg4MH0.p9VIekTTEWbE6zxpXhHRz22c2-L9HryejI-VBfqrDjQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/voteEvents/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"voteEvents",
+								"active"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
