@@ -41,8 +41,12 @@ const getCandidateByEmail = async (email) => Candidate.findOne({ email });
 const getCandidateByCandidateId = async (candidateId) =>
   Candidate.findById(candidateId);
 
+const getCandidateIdsInArray = async (candidateArray) =>
+  Candidate.find({ _id: { $in: candidateArray } }, '_id');
+
 module.exports = {
   saveCandidate,
   getCandidateByEmail,
   getCandidateByCandidateId,
+  getCandidateIdsInArray,
 };
