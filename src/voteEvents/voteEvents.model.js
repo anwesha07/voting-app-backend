@@ -63,7 +63,7 @@ const getActiveVoteEvents = async (currentDate) => {
 
 const getVoteEventByName = async (name) => VoteEvents.findOne({ name });
 const getVoteEventById = async (eventId) =>
-  VoteEvents.findById(eventId, { votes: 0, __v: 0 });
+  VoteEvents.findById(eventId, { votes: 0, __v: 0 }).populate('candidates');
 
 const voteCandidate = (userId, candidateId, voteEventId) =>
   VoteEvents.findOneAndUpdate(

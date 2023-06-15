@@ -27,7 +27,9 @@ const createVoteEventController = asyncWrap(async (req, res) => {
 
 const getVoteEventByIdController = asyncWrap(async (req, res) => {
   const eventId = req.params.id;
-  const voteEvent = await getVoteEventByIdService(eventId);
+  // eslint-disable-next-line no-underscore-dangle
+  const userId = req.user._id;
+  const voteEvent = await getVoteEventByIdService(eventId, userId);
   res.json(voteEvent);
 });
 

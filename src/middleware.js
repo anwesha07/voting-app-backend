@@ -6,7 +6,6 @@ const authenticateUser = async (req, _res, next) => {
   const token = req.headers['x-token'];
   try {
     const { userId } = jwt.verify(token, process.env.TOKEN_KEY);
-    console.log(userId);
     const user = await validateToken(token, userId);
     req.user = user;
     next();

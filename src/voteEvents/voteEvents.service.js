@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const { getCandidateIdsInArray } = require('../candidate/candidate.model');
 const {
   ConflictException,
@@ -42,10 +43,15 @@ const createVoteEventService = async (name, startDate, endDate, candidates) => {
   });
 };
 
-const getVoteEventByIdService = async (eventId) => {
+const getVoteEventByIdService = async (eventId, userId) => {
   const voteEvent = await getVoteEventById(eventId);
   if (!voteEvent) throw new NotFoundException('Vote event doesnot exist!');
-  return voteEvent;
+
+  // check whether user has already voted
+  // console.log({ userId, voters: voteEvent.votedB, userId });
+  const hasVotedUser = voteEvent.votedBy.includes(userId);
+
+  return { ...voteEvent.toObject(), hasVotedUser };
 };
 
 const voteCandidateService = async (candidateId, userId, eventId) => {
@@ -66,7 +72,7 @@ const voteCandidateService = async (candidateId, userId, eventId) => {
 
   // check whether candidate id is valid
   const candidateExists = voteEvent.candidates.find(
-    (candidate) => candidate.toString() === candidateId,
+    (candidate) => candidate._id.toString() === candidateId,
   );
   if (!candidateExists) {
     throw new BadRequestException('Invalid candidate');
